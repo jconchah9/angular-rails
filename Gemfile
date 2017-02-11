@@ -14,6 +14,15 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'bower-rails'
+gem 'slim-rails'
+gem 'foreman'
+
+group :production, :staging do
+  gem 'rails_12factor'
+  gem 'rails_stdout_logging'
+  gem 'rails_serve_static_assets'
+end
+
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails'

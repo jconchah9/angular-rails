@@ -1,0 +1,8 @@
+.container-fuild ng-app='receta'
+  .panel.panel-success
+    .panel-heading
+      h1 ng-if='name' Hola {{name}}
+    .panel.body
+      form.form-inline
+        .form-group
+          input.form-control ng-model='name' placeholder='Ingresa Nombre' autofocus='true'
