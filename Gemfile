@@ -16,6 +16,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bower-rails'
 gem 'slim-rails'
 gem 'foreman'
+gem 'angular-rails-templates'
 
 group :production, :staging do
   gem 'rails_12factor'
