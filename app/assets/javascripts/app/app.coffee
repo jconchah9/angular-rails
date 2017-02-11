@@ -1,4 +1,4 @@
-app = angular.module('receta',['templates','controllers','ngRoute'])
+app = angular.module('receta',['templates','controllers','ngRoute','ngResource'])
 
 app.config(['$routeProvider',
   ($routeProvider)->
@@ -6,23 +6,16 @@ app.config(['$routeProvider',
       .when('/',
         templateUrl: "app/templates/index.html"
         controller: 'RecipesController'
-      )
+      ).when('/recipes/new',
+        templateUrl: "app/templates/form.html"
+        controller: 'RecipeController'
+      ).when('/recipes/:recipeId',
+        templateUrl: "app/templates/show.html"
+        controller: 'RecipeController'
+       ).when('/recipes/:recipeId/edit',
+        templateUrl: "app/templates/form.html"
+        controller: 'RecipeController'
+       )
 ])
-
-recipes = [
-  { id: 1, name: 'Pollo al jugo' },
-  { id: 2, name: 'Pizza'},
-  { id: 3, name: 'Cazuela'}
-]
 
 controllers = angular.module('controllers',[])
-controllers.controller("RecipesController", [ '$scope', '$routeParams', '$location',
-  ($scope,$routeParams,$location)->
-    $scope.search = (keywords)->  $location.path("/").search('keywords',keywords)
-
-    if $routeParams.keywords
-      keywords = $routeParams.keywords.toLowerCase()
-      $scope.recipes = recipes.filter (recipe)-> recipe.name.toLowerCase().indexOf(keywords) != -1
-    else
-      $scope.recipes = []
-])

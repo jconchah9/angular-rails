@@ -1,0 +1,17 @@
+.container
+  .panel.panel-info
+    .panel-heading Nueva Receta
+    .panel-body
+      form
+        .form-group
+          label.col-md-2.control-label for='name' Nombre de la receta
+          .col-md-10
+            input.form-control name='name' ng-model='recipe.name'
+        .form-group
+          label.col-md-3.control-label for='instructions' Instruciones para la receta
+          .col-nd-9
+            textarea.form-control ng-model='recipe.instructions'
+    .panel-footer
+      .col-nd-5
+        button.btn.btn-primary ng-click="cancel()" Cancelar
+        button.btn.btn-primary ng-click="save()" Guardar
